@@ -1,0 +1,53 @@
+name: daumenkino
+display_name: Daumenkino
+contributions:
+  commands:
+    - id: daumenkino.get_reader
+      python_name: daumenkino._reader:napari_get_reader
+      title: Open data with Daumenkino
+    - id: daumenkino.write_multiple
+      python_name: daumenkino._writer:write_multiple
+      title: Save multi-layer data with Daumenkino
+    - id: daumenkino.write_single_image
+      python_name: daumenkino._writer:write_single_image
+      title: Save image data with Daumenkino
+    - id: daumenkino.make_sample_data
+      python_name: daumenkino._sample_data:make_sample_data
+      title: Load sample data from Daumenkino 
+    - id: daumenkino.make_qwidget
+      python_name: daumenkino._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: daumenkino.make_magic_widget
+      python_name: daumenkino._widget:example_magic_widget
+      title: Make example magic widget
+    - id: daumenkino.make_func_widget
+      python_name: daumenkino._widget:example_function_widget
+      title: Make example function widget 
+    - id: daumenkino.treshold_func
+      python_name: daumenkino._widget:threshold
+      title: Threshold the image
+  readers:
+    - command: daumenkino.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy'] 
+  writers:
+    - command: daumenkino.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: daumenkino.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy'] 
+  sample_data:
+    - command: daumenkino.make_sample_data
+      display_name: Daumenkino
+      key: unique_id.1 
+  widgets:
+    - command: daumenkino.make_qwidget
+      display_name: Example QWidget
+    - command: daumenkino.make_magic_widget
+      display_name: Example Magic Widget
+    - command: daumenkino.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget 
+    - command: daumenkino.treshold_func
+      display_name: Threshold the image
